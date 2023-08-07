@@ -10,6 +10,8 @@ export default function Login() {
     const { login, signup, currentUser } = useAuth()
     console.log(currentUser)
 
+    const isPasswordValid = password.length > 5;
+
     async function submitHandler() {
         if (!email || !password) {
             setError('Por favor, entre com seu e-mail e senha')
@@ -27,11 +29,23 @@ export default function Login() {
     }
 
     return (
-        <main className={`flex min-h-screen flex-col items-center justify-between p-24 bg-gray-200`}>
-        <div class="w-full max-w-xs flex-1 text-xs sm:text-sm flex flex-col justify-center items-center gap-2 sm:gap-4">
-            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h1 class="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl mb-6">{isLoggingIn ? 'Login' : 'Cadastro'}</h1>
-            {error &&
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-lg">
+            <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+              Get started today
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt
+              dolores deleniti inventore quaerat mollitia?
+            </p>
+
+            <div
+              className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-2xl sm:p-6 lg:p-8"
+            >
+              <p className="text-center text-lg font-medium">{isLoggingIn ? 'Entre com a sua conta' : 'Crie uma conta'}</p>
+
+              {error &&
                 <div role="alert" className="rounded border-s-4 border-red-500 bg-red-50 p-2">
                     <div className="flex items-center gap-2 text-red-800">
                     <svg
@@ -49,28 +63,92 @@ export default function Login() {
                 
                     <strong className="block font-medium">{error}</strong>
                     </div>
+                  </div>
+                }
+
+              <div>
+                <label for="username" className="sr-only">Email</label>
+
+                <div className="relative">
+                  <input
+                    type="text" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    placeholder="Email"
+                  />
+
+                  <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-gray-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
-            }
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    Email
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
+
+              <div>
+                <label for="password" className="sr-only">Senha</label>
+
+                <div className="relative">
+                  <input
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    type="password"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    placeholder="Senha"
+                  />
+                  <p className="text-sm text-gray-700">Senha mínima: 6 caracteres</p>
+
+                  <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-gray-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              <button
+                disabled={!isPasswordValid}
+                onClick={submitHandler}
+                className={`block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white ${isPasswordValid ? 'cursor-pointer' : 'cursor-not-allowed'}`}
+              >
+                {isLoggingIn ? 'Login' : 'Criar conta'}
+              </button>
+
+              <p className="text-center text-sm text-gray-500">
+                {!isLoggingIn ? 'Já tem uma conta ' : 'Não tem uma conta? '}
+                <span className="underline text-blue-500 cursor-pointer" onClick={() => setIsLoggingIn(!isLoggingIn)}>{!isLoggingIn ? 'Entre com sua conta' : 'Criar conta'}</span>
+              </p>
             </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                    Senha
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' />
-            </div>
-            <div class="flex items-center justify-center">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"  onClick={submitHandler}>
-                    {isLoggingIn ? 'Login' : 'Cadastro'}
-                </button>
-            </div>
-            <h2 class="inline-block align-baseline font-bold cursor-pointer text-sm text-blue-500 hover:text-blue-800" onClick={() => setIsLoggingIn(!isLoggingIn)}>{!isLoggingIn ? 'Login' : 'Cadastro'}</h2>
-            </div>
+          </div>
         </div>
-        </main>
     )
 }
