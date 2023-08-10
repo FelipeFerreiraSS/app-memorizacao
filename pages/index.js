@@ -1,19 +1,31 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Link from 'next/link'
+import react from 'react'
+import Head from 'next/head'
 
-const inter = Inter({ subsets: ['latin'] })
+import Image from 'next/image'
+import brain from "../public/brain.ico";
+
+import Header from '../components/Header'
+import Banner from '../components/Banner'
+import Footer from '../components/Footer'
+import Faq from '../components/Faq.js'
+import Section from '../components/Section.js'
+import Pricing from '../components/Pricing.js'
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <Link href="/app">
-        <button className='inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500'>
-        Login
-      </button>
-      </Link>
+    <>
+    <Head>
+      <title>Relembra.ai</title>
+      <link rel="icon" href="https://openmoji.org/data/color/svg/E319.svg" />
+    </Head>
+    <main>
+      <Header />
+      <Banner />
+      <Section />
+      <Pricing />
+      <Faq />
+      <Footer />
     </main>
+    </>
   )
 }
