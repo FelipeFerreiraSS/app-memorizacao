@@ -4,6 +4,7 @@ import Cards from './Cards'
 import { doc, setDoc, deleteField } from 'firebase/firestore'
 import { db } from '../firebase'
 import useFetchTodos from '../hooks/fetchTodos'
+import Head from 'next/head'
 
 import axios from 'axios';
 
@@ -126,13 +127,17 @@ export default function Dashboard() {
 
   return (
     <>
+      <Head>
+        <title>App|Relembra.ai</title>
+        <link rel="icon" href="https://openmoji.org/data/color/svg/E319.svg" />
+      </Head>
       <Menu />
       <div className='w-full max-w-5xl text-xs sm:text-sm mx-auto flex flex-col flex-1 gap-3 sm:gap-5'>
-        <div className='flex items-center justify-center h-32'>
-          <div className="flex flex-col">
+        <div className='flex flex-col mb-5 md:mb-0 md:flex-row md:items-center md:justify-center h-28'>
+          <div className="flex items-center flex-col mb-5 md:items-start md:flex-row md:mb-0">
             <label
               for="Username"
-              class="relative mb-5 block rounded-md border mr-5 border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+              class="relative mb-5 block rounded-md border md:mr-5  border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
             >
               <input
                 type="text"
@@ -150,7 +155,7 @@ export default function Dashboard() {
             </label>
             <label
               for="Username"
-              class="relative block rounded-md border mr-5 border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+              class="relative mb-5 block rounded-md border md:mr-5 border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
             >
               <input
                 type="text"
@@ -167,11 +172,11 @@ export default function Dashboard() {
                 Adicione a tradução
               </span>
             </label>
-            </div>
-              <button onClick={handleButtonClick} className='inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500'>
-                Adicionar
-              </button>
-            </div>
+            <button onClick={handleButtonClick} className='h-11 rounded border border-indigo-600 bg-indigo-600 px-12 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500'>
+              Adicionar
+            </button>
+          </div>
+        </div>
             {(loading) && (
               <div className='flex-1 grid place-items-center'>
                 <Image
@@ -185,7 +190,7 @@ export default function Dashboard() {
             )}
             {(!loading) && (
               <>
-                <div className='grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8'>
+                <div className='m-auto mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:mt-0 lg:grid-cols-4 lg:gap-8'>
                   {Object.keys(todos).map((todo, i) => {
                     return (
                       <div className="block max-w-xs rounded-lg p-4 shadow-sm shadow-gray-500">
