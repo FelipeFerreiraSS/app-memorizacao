@@ -28,7 +28,7 @@ export default function Banner() {
 
                     <a
                     className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-blue-600 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                    href="/about"
+                    href="#about"
                     >
                     Ler mais
                     </a>
