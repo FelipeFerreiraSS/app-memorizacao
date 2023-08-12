@@ -31,7 +31,7 @@ export default function Dashboard() {
     <>
       <Head>
         <title>App|Relembra.ai</title>
-        <link rel="icon" href="https://openmoji.org/data/color/svg/E319.svg" />
+        <link rel="icon" href="https://raw.githubusercontent.com/FelipeFerreiraSS/app-memorizacao/main/public/icoLogo.ico" />
       </Head>
       <Menu />
       <div className='w-full max-w-5xl text-xs sm:text-sm mx-auto flex flex-col flex-1 gap-3 sm:gap-5'>
