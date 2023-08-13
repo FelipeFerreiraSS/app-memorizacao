@@ -8,11 +8,10 @@
 </h4>
 
 ## 💻 Sobre o projeto
-<p>
-  O Relembra.AI é um aplicativo inteligente e intuitivo projetado para aprimorar 
-  suas habilidades de memorização e retenção de informações. Seja para estudar para exames, 
-  aprender novos idiomas, ou simplesmente expandir seu conhecimento.
-</p>
+
+O [Relembra.AI](https://relembra-ai.vercel.app/) é um aplicativo inteligente e intuitivo projetado para aprimorar 
+suas habilidades de memorização e retenção de informações. Seja para estudar para exames, 
+aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 
 ## ⚙️ Features
 
