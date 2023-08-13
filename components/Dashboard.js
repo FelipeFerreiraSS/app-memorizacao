@@ -59,6 +59,7 @@ export default function Dashboard() {
               {Object.keys(allCards).map((card, i) => {
                 return (
                   <Cards 
+                    key={i.toString()}
                   	allCards={allCards}
                   	card={card}
                   	edit={edit}

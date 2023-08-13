@@ -46,8 +46,6 @@ export default function Crud() {
     }
   };
 
-  console.log(allCards)
-
   async function handleAddCard(imageUrl) {
     if (!word || !translation || !imageUrl) { return }
     const newKey = Object.keys(allCards).length === 0 ? 1 : Math.max(...Object.keys(allCards)) + 1

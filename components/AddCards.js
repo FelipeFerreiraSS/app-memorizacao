@@ -6,12 +6,12 @@ export default function AddCards({ word, setWord, translation, setTranslation, h
       <div className="flex items-center flex-col mb-5 md:items-start md:flex-row md:mb-0">
         <label
           for="Username"
-          class="relative mb-5 block rounded-md border md:mr-5  border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          className="relative mb-5 block rounded-md border md:mr-5  border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
         >
           <input
             type="text"
             id="Username"
-            class="sm:text-lg peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+            className="sm:text-lg peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
             placeholder="Add palavra"
             value={word}
             onChange={(e) => setWord(e.target.value)}
@@ -24,12 +24,12 @@ export default function AddCards({ word, setWord, translation, setTranslation, h
         </label>
         <label
           for="Username"
-          class="relative mb-5 block rounded-md border md:mr-5 border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          className="relative mb-5 block rounded-md border md:mr-5 border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
         >
           <input
             type="text"
             id="Username"
-            class="sm:text-lg peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+            className="sm:text-lg peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
             placeholder="Add palavra"
             value={translation}
             onChange={(e) => setTranslation(e.target.value)}

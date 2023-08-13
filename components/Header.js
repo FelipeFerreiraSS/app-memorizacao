@@ -130,43 +130,43 @@ export default function Header() {
                                 <li>
                                 </li>
                                 <li>
-                                <a
+                                <Link
                                     onClick={toggleDropdown}
                                     className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-gray-700"
                                     href="/#about"
                                 >
                                     Sobre
-                                </a>
+                                </Link>
                                 </li>
 
                                 <li>
-                                <a
+                                <Link
                                     onClick={toggleDropdown}
                                     className="mb-7 rounded-lg bg-white px-4 py-2 text-sm font-medium text-gray-700"
                                     href="/#functions"
                                 >
                                     Funçôes
-                                </a>
+                                </Link>
                                 </li>
 
                                 <li>
-                                <a
+                                <Link
                                     onClick={toggleDropdown}
                                     className="mb-7 rounded-lg bg-white px-4 py-2 text-sm font-medium text-gray-700"
                                     href="/#price"
                                 >
                                     Preço
-                                </a>
+                                </Link>
                                 </li>
 
                                 <li>
-                                <a
+                                <Link
                                     onClick={toggleDropdown}
                                     className="mb-7 rounded-lg bg-white px-4 py-2 text-sm font-medium text-gray-700"
                                     href="/#faq"
                                 >
                                     FAQ
-                                </a>
+                                </Link>
                                 </li>
                             </ul>
 
