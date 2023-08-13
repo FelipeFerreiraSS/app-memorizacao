@@ -8,10 +8,12 @@ import editIcon from "../public/edit.svg";
 export default function Cards({allCards, card, edit, edittedValue, setEdittedValue, handleEditCard, handleAddEdit, handleDelete}) {
 
   return (
-    <div className="block max-w-xs rounded-lg p-4 shadow-sm shadow-gray-500">
-      <img
+    <div key={allCards[card].image} className="block max-w-xs rounded-lg p-4 shadow-sm shadow-gray-500">
+      <Image
         alt="Home"
         src={allCards[card].image}
+        width={300}
+        height={200}
         class="max-h-44 max-w-52 rounded-md object-cover"
       />
       <div className="mt-2">

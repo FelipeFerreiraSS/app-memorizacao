@@ -32,39 +32,39 @@ export default function Header() {
                     <nav aria-label="Global">
                     <ul className="flex items-center gap-6 text-sm">
                         <li>
-                        <a
+                        <Link
                             className="text-gray-900 transition hover:text-gray-500/75"
                             href="/#about"
                         >
                             Sobre
-                        </a>
+                        </Link>
                         </li>
 
                         <li>
-                        <a
+                        <Link
                             className="text-gray-900 transition hover:text-gray-500/75"
                             href="/#functions"
                         >
                             Funçôes
-                        </a>
+                        </Link>
                         </li>
 
                         <li>
-                        <a
+                        <Link
                             className="text-gray-900 transition hover:text-gray-500/75"
                             href="/#price"
                         >
                             Preço
-                        </a>
+                        </Link>
                         </li>
 
                         <li>
-                        <a
+                        <Link
                             className="text-gray-900 transition hover:text-gray-500/75"
                             href="/#faq"
                         >
                             FAQ
-                        </a>
+                        </Link>
                         </li>
                     </ul>
                     </nav>
