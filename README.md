@@ -76,3 +76,13 @@ Feito com ❤️ por Felipe Ferreira 👋🏽 Entre em contato!
 
 [![Linkedin Badge](https://img.shields.io/badge/-FelipeFerreira-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipeferreiradev/)](https://www.linkedin.com/in/felipeferreiradev/) 
 [![Gmail Badge](https://img.shields.io/badge/-felipeferreirasilva.dev@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:felipeferreirasilva.dev@gmail.com)](mailto:felipeferreirasilva.dev@gmail.com)
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+Feito com ❤️ por Felipe Ferreira 👋🏽 [Entre em contato!](https://www.linkedin.com/in/felipeferreiradev/)
+
+---
