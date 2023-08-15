@@ -19,7 +19,7 @@ aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 - [x] Login e autenticação de usuário
 - [x] CRUD completo
 - [x] Adição automática de imagem em novos cards
-- [ ] Jogo de adivinhação de palavras cadastradas
+- [x] Jogo de adivinhação de palavras cadastradas
 - [ ] Método de repetição espaçada adaptativa
 - [ ] Gráficos de acompanhamento do progresso de aprendizado
 - [ ] Agenda de Estudo de Palavras
