@@ -4,6 +4,7 @@ import { doc, setDoc, deleteField } from 'firebase/firestore'
 import { db } from '../firebase'
 import useFetchAllCards from '../hooks/fetchAllCards.js'
 import axios from 'axios';
+import { format } from 'date-fns';
 
 export default function Crud() {
 	const { userInfo, currentUser } = useAuth()
@@ -46,6 +47,10 @@ export default function Crud() {
     }
   };
 
+  const currentDate = new Date();
+  const threeDaysFromNow = new Date(currentDate.getTime() + 3 * 24 * 60 * 60 * 1000);
+  const formattedDate = format(threeDaysFromNow, 'dd/MM');
+
   async function handleAddCard(imageUrl) {
     if (!word || !translation || !imageUrl) { return }
     const newKey = Object.keys(allCards).length === 0 ? 1 : Math.max(...Object.keys(allCards)) + 1
@@ -55,6 +60,7 @@ export default function Crud() {
         word: word,
         translation: translation,
         image: imageUrl,
+        timeCard: formattedDate,
       }
     });
     const userRef = doc(db, 'users', currentUser.uid)
@@ -64,6 +70,7 @@ export default function Crud() {
           word: word,
           translation: translation,
           image: imageUrl,
+          timeCard: formattedDate,
         }
       }
     }, { merge: true })
