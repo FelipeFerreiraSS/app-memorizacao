@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 import arrow_back from "../public/arrow_back.svg";
 
-export default function Game({ isOpen, onClose, originalWord, translatedWord, imageUrl }) {
+export default function Game({allCards, isOpen, onClose, originalWord, translatedWord, imageUrl }) {
 	if (!isOpen) return null
 
 	const [userGuess, setUserGuess] = useState('');
@@ -15,7 +15,7 @@ export default function Game({ isOpen, onClose, originalWord, translatedWord, im
   };
 
   const checkGuess = () => {
-    if (userGuess.toLowerCase() === originalWord.toLowerCase()) {
+    if (userGuess.toLowerCase() === translatedWord.toLowerCase()) {
       setFeedbackPositive('Resposta correta!');
       setFeedbackNegative('')
     } else {
@@ -42,7 +42,7 @@ export default function Game({ isOpen, onClose, originalWord, translatedWord, im
           Voltar
         </button>
         <h2 className="text-xl text-center font-medium mb-4">
-        	Qual é a tradução para a palavra: <p className="text-xl font-bold mb-4">{translatedWord}</p> 
+        	Qual é a tradução para a palavra: <p className="text-xl font-bold mb-4">{originalWord}</p> 
         </h2>
         <Image
 	        alt="Home"
@@ -51,7 +51,7 @@ export default function Game({ isOpen, onClose, originalWord, translatedWord, im
 	        height={350}
 	        className="rounded-md object-cover"
 	      />
-	      <di className="flex mt-5">
+	      <div className="flex mt-5">
 	      	<label
 	          className="relative mb-5 block rounded-md border md:mr-5  border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
 	        >
@@ -74,7 +74,7 @@ export default function Game({ isOpen, onClose, originalWord, translatedWord, im
 	        >
 	          Verificar
 	        </button>
-	      </di>
+	      </div>
         {feedbackPositive && <p className="rounded py-2 bg-green-600 text-center text-xl font-bold">{feedbackPositive}</p>}
         {feedbackNegative && <p className="rounded py-2 bg-red-600 text-center text-xl font-bold">{feedbackNegative}</p>} 
       </div>
