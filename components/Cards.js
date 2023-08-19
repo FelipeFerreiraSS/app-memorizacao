@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { format } from 'date-fns';
 
 import Image from 'next/image';
 import checkIcon from "../public/check.svg";
@@ -20,8 +21,13 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
     setModalOpen(false)
   }
 
+  const currentDate = new Date();
+  const formattedDate = format(currentDate, 'dd/MM');
+  const gameOn = formattedDate >= allCards[card].timeCard
+
   return (
     <div className="block max-w-xs rounded-lg p-4 shadow-sm shadow-gray-500">
+      <p className="-mt-2 mb-2 text-center text-2xl font-semibold">{allCards[card].word}</p>
       <Image
         alt="Home"
         src={allCards[card].image}
@@ -33,9 +39,8 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
         <div className='flex-1 flex'>
           {!(edit === card) ? (
             <>
-              <div className="flex flex-col">
-                <p className="text-gray-700">Palavra: <span className="font-medium text-gray-900">{allCards[card].word}</span></p>
-                <p className="text-gray-700">Tradução: <span className="font-medium text-gray-900">{allCards[card].translation}</span></p>
+              <div className="flex">
+                <p className="text-gray-700">Proxima revisão: <span className="font-medium text-gray-900">{allCards[card].timeCard}</span></p>
               </div>
             </>
           ) : (
@@ -89,7 +94,8 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
           ></span>
           <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2 overflow-hidden rounded-md border bg-white shadow-sm">
             <button
-              className="inline-block border-e p-3 text-gray-700 hover:bg-orange-400 focus:relative hover:scale-125 duration-300 shadow-gray-500"
+              className={`inline-block border-e p-3 text-gray-700 hover:bg-orange-400 focus:relative hover:scale-125 duration-300 shadow-gray-500 ${gameOn ? 'cursor-pointer' : 'cursor-not-allowed'} `}
+              disabled={!gameOn}
               onClick={openModal}
             >
               <Image
@@ -99,7 +105,14 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
               alt="Picture of the author"
               />
             </button>
-            <Game isOpen={modalOpen} onClose={closeModal} originalWord={allCards[card].word} translatedWord={allCards[card].translation} imageUrl={allCards[card].image}/>
+            <Game 
+              card={card}
+              isOpen={modalOpen} 
+              onClose={closeModal} 
+              originalWord={allCards[card].word} 
+              translatedWord={allCards[card].translation} 
+              imageUrl={allCards[card].image}
+            />
           </div>
         </div>
       </div>
