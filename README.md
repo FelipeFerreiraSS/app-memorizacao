@@ -20,7 +20,7 @@ aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 - [x] CRUD completo
 - [x] Adição automática de imagem em novos cards
 - [x] Jogo de adivinhação de palavras cadastradas
-- [ ] Método de repetição espaçada adaptativa
+- [x] Lógica de repetição espaçada adaptativa
 - [ ] Gráficos de acompanhamento do progresso de aprendizado
 - [ ] Agenda de Estudo de Palavras
 - [ ] Jogo de adivinhação de palavras com alternativas geradas por IA
