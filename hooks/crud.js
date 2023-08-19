@@ -4,7 +4,7 @@ import { doc, setDoc, deleteField } from 'firebase/firestore'
 import { db } from '../firebase'
 import useFetchAllCards from '../hooks/fetchAllCards.js'
 import axios from 'axios';
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 
 export default function Crud() {
 	const { userInfo, currentUser } = useAuth()
@@ -13,6 +13,8 @@ export default function Crud() {
   const [translation, setTranslation] = useState('')
   const [edittedValue, setEdittedValue] = useState('')
   const { allCards, setAllCards, loading, error } = useFetchAllCards()
+  const [newData, setNewData] = useState('');
+  const [cardId, setCardId] = useState('');
 
   const [searchQuery, setSearchQuery] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -117,6 +119,42 @@ export default function Crud() {
       }, { merge: true })
     }
   }
+  
+  const handleOptionChange = (event, card) => {
+    const optionValue = event.target.value;
+    const currentDate = new Date();
+    let addData;
+
+    if (optionValue === 'easy') {
+      addData = addDays(currentDate, 7);
+    } else if (optionValue === 'medium') {
+      addData = addDays(currentDate, 3);
+    } else if (optionValue === 'difficult') {
+      addData = addDays(currentDate, 1);
+    }
+
+    const formattedDate = format(addData, 'dd/MM');
+    setNewData(formattedDate);
+    setCardId(card)
+  };
+  
+  async function handleUpdateData() {
+    if (!setNewData || !setCardId) {
+      return;
+    }
+    const newKey = cardId
+    setAllCards({ ...allCards, [newKey]: { timeCard: newData } })
+    const userRef = doc(db, 'users', currentUser.uid)
+    await setDoc(userRef, {
+      'allCards': {
+        [newKey]: {
+          timeCard: newData
+        }
+      }
+    }, { merge: true })
+    setCardId(null)
+    setNewData({ timeCard: '' })
+  };
 
 	return { 
 		word, 
@@ -131,6 +169,9 @@ export default function Crud() {
 		setEdittedValue,
 		handleEditCard, 
 		handleAddEdit, 
-		handleDelete
+		handleDelete,
+    handleOptionChange,
+    handleUpdateData,
+    newData
 	}
 }

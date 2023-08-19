@@ -27,7 +27,7 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
 
   return (
     <div className="block max-w-xs rounded-lg p-4 shadow-sm shadow-gray-500">
-      <p className="text-center text-2xl font-semibold">{allCards[card].word}</p>
+      <p className="-mt-2 mb-2 text-center text-2xl font-semibold">{allCards[card].word}</p>
       <Image
         alt="Home"
         src={allCards[card].image}
@@ -105,7 +105,14 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
               alt="Picture of the author"
               />
             </button>
-            <Game isOpen={modalOpen} onClose={closeModal} originalWord={allCards[card].word} translatedWord={allCards[card].translation} imageUrl={allCards[card].image}/>
+            <Game 
+              card={card}
+              isOpen={modalOpen} 
+              onClose={closeModal} 
+              originalWord={allCards[card].word} 
+              translatedWord={allCards[card].translation} 
+              imageUrl={allCards[card].image}
+            />
           </div>
         </div>
       </div>
