@@ -5,8 +5,6 @@ import Image from 'next/image';
 import arrow_back from "../public/arrow_back.svg";
 
 export default function Game({allCards, card, isOpen, onClose, originalWord, translatedWord, imageUrl }) {
-	if (!isOpen) return null
-    
 	const [userGuess, setUserGuess] = useState('');
   const [feedbackPositive, setFeedbackPositive] = useState('');
   const [feedbackNegative, setFeedbackNegative] = useState('');
