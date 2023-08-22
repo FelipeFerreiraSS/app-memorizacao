@@ -5,6 +5,7 @@ import { db } from '../firebase'
 import useFetchAllCards from '../hooks/fetchAllCards.js'
 import axios from 'axios';
 import { format, addDays } from 'date-fns';
+import { v4 as uuidv4 } from 'uuid'
 
 export default function Crud() {
 	const { userInfo, currentUser } = useAuth()
@@ -55,7 +56,7 @@ export default function Crud() {
 
   async function handleAddCard(imageUrl) {
     if (!word || !translation || !imageUrl) { return }
-    const newKey = Object.keys(allCards).length === 0 ? 1 : Math.max(...Object.keys(allCards)) + 1
+    const newKey = uuidv4()
     setAllCards({
       ...allCards,
       [newKey]: {
