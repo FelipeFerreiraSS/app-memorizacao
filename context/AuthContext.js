@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
 import { auth, db } from '../firebase'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, getDoc, docSnap, docRef, setDoc } from 'firebase/firestore'
 
 const AuthContext = React.createContext()
 
@@ -30,6 +30,18 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async user => {
             setCurrentUser(user)
+
+            if (user) {
+                const docRef = doc(db, 'users', user.uid);
+                const docSnap = await getDoc(docRef);
+
+                if (!docSnap.exists()) {
+                    await setDoc(docRef, {
+                      'allCards': {}
+                    }, { merge: true })
+                }
+            }
+
             setLoading(false)
         })
         return unsubscribe
