@@ -7,6 +7,7 @@ export default function fetchAllCards() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [allCards, setAllCards] = useState(null)
+    const [allActivities, setAllActivities] = useState(null)
 
     const { currentUser } = useAuth()
 
@@ -17,6 +18,7 @@ export default function fetchAllCards() {
                 const docSnap = await getDoc(docRef)
                 if (docSnap.exists()) {
                     setAllCards(docSnap.data().allCards)
+                    setAllActivities(docSnap.data().allActivities)
                 } else {
                     setAllCards({})
                 }
@@ -30,5 +32,5 @@ export default function fetchAllCards() {
         fetchData()
     }, [])
 
-    return { loading, error, allCards, setAllCards }
+    return { loading, error, allCards, setAllCards, allActivities, setAllActivities }
 }
