@@ -37,7 +37,8 @@ export function AuthProvider({ children }) {
 
                 if (!docSnap.exists()) {
                     await setDoc(docRef, {
-                      'allCards': {}
+                      'allCards': {},
+                      'allActivities': {}
                     }, { merge: true })
                 }
             }
