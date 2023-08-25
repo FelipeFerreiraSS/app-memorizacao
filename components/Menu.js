@@ -7,11 +7,23 @@ import logoSvg from "../public/logo.svg";
 import Image from 'next/image';
 import account_circle from "../public/account_circle.svg";
 import logout_icon from "../public/logout_icon.svg";
+import monitoring from "../public/monitoring.svg";
 
-export default function Menu() {
+import ActivityChart from './ActivityChart.js'
+
+export default function Menu({ allActivities }) {
   const { logout } = useAuth()
 
   const [userEmail, setUserEmail] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
 
   useEffect(() => {
     const auth = getAuth();
@@ -41,6 +53,23 @@ export default function Menu() {
 
         <div>
           <div className="flex items-center justify-end gap-4">
+            <button
+              className="block shrink-0 rounded-full bg-white p-2.5 text-gray-600 shadow-sm hover:text-gray-700"
+              onClick={openModal}
+            >
+              <Image
+              src={monitoring}
+              className="hover:scale-125 duration-300"
+              width={20}
+              height={20}
+              alt="Picture of the author"
+              />
+            </button>
+            <ActivityChart 
+              isOpen={modalOpen} 
+              onClose={closeModal} 
+              allActivities={allActivities} 
+            />
             <span
                 aria-hidden="true"
                 className="block h-6 w-px rounded-full bg-gray-200"

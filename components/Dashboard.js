@@ -19,6 +19,7 @@ export default function Dashboard() {
   	handleButtonClick, 
   	loading, 
   	allCards, 
+    allActivities,
   	edit, 
   	edittedValue,
   	setEdittedValue, 
@@ -33,7 +34,9 @@ export default function Dashboard() {
         <title>App|Relembra.ai</title>
         <link rel="icon" href="https://raw.githubusercontent.com/FelipeFerreiraSS/app-memorizacao/main/public/icoLogo.ico" />
       </Head>
-      <Menu />
+      <Menu 
+        allActivities={allActivities}
+      />
       <div className='w-full max-w-5xl text-xs sm:text-sm mx-auto flex flex-col flex-1 gap-3 sm:gap-5'>
         <AddCards 
         	word={word}
@@ -64,7 +67,6 @@ export default function Dashboard() {
             ) : (
               <div className='m-auto mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:mt-0 lg:grid-cols-4 lg:gap-8'>
                 {Object.keys(allCards).map((card, i) => {
-                  console.log(card)
                   return (
                     <Cards 
                       key={i.toString()}
