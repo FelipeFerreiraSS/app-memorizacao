@@ -10,15 +10,15 @@ export default function ActivityChart({ isOpen, onClose, allActivities }) {
 
   useEffect(() => {
     if (allActivities) {
-      // Converte o objeto em um array e ordena pela data mais recente
       const sortedActivities = Object.values(allActivities).sort((a, b) =>
         new Date(b.day) - new Date(a.day)
       );
-      
-      // Pega apenas os últimos 7 itens
-      const last7Activities = sortedActivities.slice(1, 8);
 
-      // Mapeia os dados para o formato desejado
+      const sortedActivitiesLength = sortedActivities.length
+      const sortedActivitiesLast7Days = sortedActivitiesLength - 7
+      
+      const last7Activities = sortedActivities.slice(sortedActivitiesLast7Days, sortedActivitiesLength);
+
       const mappedData = last7Activities.map((activity) => ({
         Atividades: activity.counter,
         dia: activity.day
@@ -27,6 +27,7 @@ export default function ActivityChart({ isOpen, onClose, allActivities }) {
       setData(mappedData);
     }
   }, [allActivities]);
+
 
   if (!isOpen) return null
   return (
