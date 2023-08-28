@@ -21,8 +21,9 @@ aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 - [x] Adição automática de imagem em novos cards
 - [x] Jogo de adivinhação de palavras cadastradas
 - [x] Lógica de repetição espaçada adaptativa
-- [ ] Gráficos de acompanhamento do progresso de aprendizado
-- [ ] Agenda de Estudo de Palavras
+- [x] Gráficos de acompanhamento do progresso de aprendizado
+- [x] Edição e exibição do perfil do usuário
+- [x] Sistema de níveis que aumenta conforme usuário realiza atividades
 - [ ] Jogo de adivinhação de palavras com alternativas geradas por IA
 
 ## 🚀 Como executar o projeto
