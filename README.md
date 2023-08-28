@@ -13,7 +13,7 @@ O [Relembra.AI](https://relembra-ai.vercel.app/) é um aplicativo inteligente e 
 suas habilidades de memorização e retenção de informações. Seja para estudar para exames, 
 aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 
-## ⚙️ Features
+## ⚙️ Funcionalidades
 
 - [x] Cadastro de usuário
 - [x] Login e autenticação de usuário
