@@ -28,19 +28,25 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
   return (
     <div className="block max-w-xs rounded-lg p-4 shadow-sm shadow-gray-500">
       <p className="-mt-2 mb-2 text-center text-2xl font-semibold">{allCards[card].word}</p>
-      <Image
-        alt="Home"
-        src={allCards[card].image}
-        width={200}
-        height={300}
-        className="max-h-44 max-w-52 rounded-md object-cover"
-      />
+      <div className="w-48 h-32 m-auto overflow-hidden relative">
+        <Image
+          src={allCards[card].image}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-xl"
+          alt="Picture of the author"
+        />
+      </div>
       <div className="mt-2">
         <div className='flex-1 flex'>
           {!(edit === card) ? (
             <>
               <div className="flex">
-                <p className="text-gray-700">Proxima revisão: <span className="font-medium text-gray-900">{allCards[card].timeCard}</span></p>
+                {!(gameOn) ? (
+                  <p className="text-gray-700">Proxima revisão: <span className="font-medium text-gray-900">{allCards[card].timeCard}</span></p>
+                ) : (
+                  <p className="text-gray-700">Proxima revisão: <span className="font-semibold text-green-500">Hoje</span></p>
+                )}
               </div>
             </>
           ) : (
