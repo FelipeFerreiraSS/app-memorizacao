@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getAuth, updateProfile } from "firebase/auth";
 
 import Image from 'next/image';
-import arrow_back from "../public/arrow_back.svg";
+import { IconContext } from "react-icons";
+import { BiArrowBack } from 'react-icons/bi';
 
 export default function EditProfile({ isOpen, onClose }) {
   const auth = getAuth(); 
@@ -42,13 +43,9 @@ export default function EditProfile({ isOpen, onClose }) {
           className="flex px-4 py-2 hover:scale-125 duration-300"
           onClick={onClose}
         >
-          <Image
-          src={arrow_back}
-          width={20}
-          height={20}
-          alt="Picture of the author"
-          className="mr-1"
-          />
+          <IconContext.Provider value={{ size: "20px" }}>
+            <BiArrowBack />
+          </IconContext.Provider>
           Voltar
         </button>
         <h1 className="text-3xl text-center font-medium mb-4">Edite seu perfil:</h1>
