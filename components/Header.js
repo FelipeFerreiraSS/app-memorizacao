@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Link from "next/link"
 
-import Image from 'next/image'
-import logoSvg from "../public/logo.svg"
-import close from "../public/close.svg"
+import { IconContext } from "react-icons";
+import { GrClose } from 'react-icons/gr';
+import { AiOutlineBars } from 'react-icons/ai';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false)
@@ -18,12 +18,8 @@ export default function Header() {
                 <div className="flex h-16 items-center justify-between">
                 <div className="md:flex md:items-center md:gap-12">
                     <Link href="/">
-                        <Image
-                        className=''
-                        src={logoSvg}
-                        width={200}
-                        height={200}
-                        alt="Picture of the author"
+                        <img
+                            src="https://raw.githubusercontent.com/FelipeFerreiraSS/relembra.ai/main/public/logo.png"
                         />
                     </Link>
                 </div>
@@ -89,43 +85,30 @@ export default function Header() {
 
                     <div className="block md:hidden">
                     <button
+                        data-testid="mobile-menu-toggle"
                         onClick={toggleDropdown}
                         className={`rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 ${isOpen ? 'hidden' : 'block'}`}
                     >
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4 6h16M4 12h16M4 18h16"
-                        />
-                        </svg>
+                        <IconContext.Provider value={{ size: "20px" }}>
+                            <AiOutlineBars />
+                        </IconContext.Provider>
                     </button>
                     {isOpen && (
                         <button
+                            data-testid="mobile-menu-toggle-close"
                             onClick={toggleDropdown}
                             className="rounded w-10 rounded-md bg-gray-50 p-2 text-gray-600 transition hover:text-gray-600/75"
                         >
-                            <Image
-                            className='h-5 w-5'
-                            src={close}
-                            width={20}
-                            height={20}
-                            alt="Picture of the author"
-                            />
+                            <IconContext.Provider value={{ size: "20px" }}>
+                                <GrClose />
+                            </IconContext.Provider>
                         </button>
                     )}
                     </div>
                 </div>
                 </div>
                 {isOpen && (
-                    <div className={`absolute sm:hidden w-11/12 mr-2 bg-gray-100 border-2 pb-5 rounded-md border-gray-200 ${isOpen ? 'block' : 'hidden'}`}>
+                    <div data-testid="mobile-menu" className={`absolute sm:hidden w-11/12 mr-2 bg-gray-100 border-2 pb-5 rounded-md border-gray-200 ${isOpen ? 'block' : 'hidden'}`}>
                             <ul className="grid gap-5 mr-2 justify-items-end text-sm">
                                 <li>
                                 </li>

@@ -90,7 +90,7 @@ export default function LevelUser({ allActivities }) {
               style={{ width: `${lastTwoDigits}%` }}
             >
               <span className='bg-blue-500 absolute -right-4 bottom-full mb-2 rounded-sm py-1 px-2 text-xs font-semibold text-white'>
-                <span className='bg-blue-500 absolute bottom-[-3px] left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm'></span>
+                <span data-testid="custom-element" className='bg-blue-500 absolute bottom-[-3px] left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm'></span>
                 {lastTwoDigits}%
               </span>
             </div>
