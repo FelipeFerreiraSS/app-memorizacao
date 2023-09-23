@@ -4,7 +4,7 @@
 <h1 align="center">Relembra.AI</h1>
 
 <h4 align="center"> 
-	🚧 Em construção...  🚧
+	✅ Concluído ✅
 </h4>
 
 ## 💻 Sobre o projeto
@@ -24,7 +24,8 @@ aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 - [x] Gráficos de acompanhamento do progresso de aprendizado
 - [x] Edição e exibição do perfil do usuário
 - [x] Sistema de níveis que aumenta conforme usuário realiza atividades
-- [ ] Jogo de adivinhação de palavras com alternativas geradas por IA
+- [x] Jogo de adivinhação de palavras com alternativas geradas por IA
+- [x] Implementação de testes unitários
 
 ## 🚀 Como executar o projeto
 
@@ -62,6 +63,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Firebase](https://firebase.google.com/?hl=pt)
 - [Unsplash API](https://unsplash.com/developers)
 - [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Date-fns](https://date-fns.org/)
+- [OpenAi](https://openai.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [recharts](https://recharts.org/en-US/)
+- [jest](https://jestjs.io/pt-BR/)
+- [Testing Library React](testing-library/react)
 
 ### Autor
 ---
