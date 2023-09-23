@@ -26,6 +26,7 @@ aprender novos idiomas, ou simplesmente expandir seu conhecimento.
 - [x] Sistema de níveis que aumenta conforme usuário realiza atividades
 - [x] Jogo de adivinhação de palavras com alternativas geradas por IA
 - [x] Implementação de testes unitários
+- [x] Deploy
 
 ## 🚀 Como executar o projeto
 
