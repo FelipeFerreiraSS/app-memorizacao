@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { format } from 'date-fns';
 
+import { IconContext } from "react-icons";
+import { PiRobot } from 'react-icons/pi';
+
 import Image from 'next/image';
 import checkIcon from "../public/check.svg";
 import deleteIcon from "../public/delete.svg";
@@ -8,17 +11,27 @@ import editIcon from "../public/edit.svg";
 import controller from "../public/controller.svg";
 
 import Game from './Game.js'
+import GameAi from './GameAi.js'
 
 export default function Cards({allCards, card, edit, edittedValue, setEdittedValue, handleEditCard, handleAddEdit, handleDelete}) {
 
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpenGame, setModalOpenGame] = useState(false)
+  const [modalOpenGameAi, setModalOpenGameAi] = useState(false)
 
-  const openModal = () => {
-    setModalOpen(true)
+  const openModalGame = () => {
+    setModalOpenGame(true)
   }
 
-  const closeModal = () => {
-    setModalOpen(false)
+  const closeModalGame = () => {
+    setModalOpenGame(false)
+  }
+
+  const openModalGameAi = () => {
+    setModalOpenGameAi(true)
+  }
+
+  const closeModalGameAi = () => {
+    setModalOpenGameAi(false)
   }
 
   const currentDate = new Date();
@@ -94,15 +107,11 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
               />
             </button>
           </div>
-          <span
-            aria-hidden="true"
-            className="mr-2 block h-10 w-px rounded-full bg-gray-500"
-          ></span>
           <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2 overflow-hidden rounded-md border bg-white shadow-sm">
             <button
               className={`inline-block border-e p-3 text-gray-700 hover:bg-orange-400 focus:relative hover:scale-125 duration-300 shadow-gray-500 ${gameOn ? 'cursor-pointer' : 'cursor-not-allowed'} `}
               disabled={!gameOn}
-              onClick={openModal}
+              onClick={openModalGame}
             >
               <Image
               src={controller}
@@ -113,8 +122,27 @@ export default function Cards({allCards, card, edit, edittedValue, setEdittedVal
             </button>
             <Game 
               card={card}
-              isOpen={modalOpen} 
-              onClose={closeModal} 
+              isOpen={modalOpenGame} 
+              onClose={closeModalGame} 
+              originalWord={allCards[card].word} 
+              translatedWord={allCards[card].translation} 
+              imageUrl={allCards[card].image}
+            />
+          </div>
+          <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2 overflow-hidden rounded-md border bg-white shadow-sm">
+            <button
+              className={`inline-block border-e p-3 text-gray-700 hover:bg-violet-400 focus:relative hover:scale-125 duration-300 shadow-gray-500 ${gameOn ? 'cursor-pointer' : 'cursor-not-allowed'} `}
+              disabled={!gameOn}
+              onClick={openModalGameAi}
+            >
+              <IconContext.Provider value={{ size: "20px" }}>
+                <PiRobot />
+              </IconContext.Provider>
+            </button>
+            <GameAi 
+              card={card}
+              isOpen={modalOpenGameAi} 
+              onClose={closeModalGameAi} 
               originalWord={allCards[card].word} 
               translatedWord={allCards[card].translation} 
               imageUrl={allCards[card].image}
