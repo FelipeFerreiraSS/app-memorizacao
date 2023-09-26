@@ -71,6 +71,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [jest](https://jestjs.io/pt-BR/)
 - [Testing Library React](testing-library/react)
 
+## ✒ Figma
+
+Criei o design completo do app usando o Figma. Confira-o neste [link](https://www.figma.com/file/iLGmCd7jYDdRoID8nuLUk7/Untitled?type=design&node-id=0%3A1&mode=design&t=U3kwa7Cdjqk4iZs5-1).
+
 ### Autor
 ---
 
